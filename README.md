@@ -11,7 +11,7 @@
 web-based e-commerce app where users can browse items, add them to the cart, and purchase them.
 
 
-## Architecture
+## Architecture...
 
 [![Architecture of
 microservices](/docs/img/architecture-diagram.png)](https://youtu.be/KNH_qe1vJAg)
