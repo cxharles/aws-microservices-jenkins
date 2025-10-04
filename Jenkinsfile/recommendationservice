@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
-        DOCKER_NAME  = 'harishnshetty/recommendationservice'
+        DOCKER_NAME  = 'charlesjatto/recommendationservice'
         IMAGE_NAME   = 'recommendationservice'
         PATH = "$PATH:/var/lib/jenkins/.local/bin"   // <-- Fix: add pip install path
     }
@@ -20,7 +20,7 @@ pipeline {
 
         stage("Git Checkout") {
             steps {
-                git branch: 'main', url: 'https://github.com/harishnshetty/Google-microservices-devsecops-project.git'
+                git branch: 'main', url: 'https://github.com/cxharles/aws-microservices-jenkins.git'
             }
         }
 
@@ -128,7 +128,7 @@ pipeline {
                 dir('src/recommendationservice') {
                     withCredentials([string(credentialsId: 'docker-cred', variable: 'dockerpwd')]) {
                         sh '''
-                        docker login -u harishnshetty -p ${dockerpwd}
+                        docker login -u charlesjatto -p ${dockerpwd}
                         docker push ${IMAGE_TAG}
                         docker tag ${IMAGE_NAME} ${DOCKER_NAME}:latest
                         docker push ${DOCKER_NAME}:latest
@@ -175,8 +175,8 @@ pipeline {
                             <p>Started by: ${buildUser}</p>
                             <p>Build URL: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
                         """,
-                        to: 'harishn662@gmail.com',
-                        from: 'harishn662@gmail.com',
+                        to: 'jattocharles777@gmail.com',
+                        from: 'jattocharles777@gmail.com',
                         mimeType: 'text/html',
                         attachmentsPattern: 'bandit-report.json,safety-report.json,trivy-fs-report.txt,trivy-image-email.json,trivy-image-email.txt'
                     )
