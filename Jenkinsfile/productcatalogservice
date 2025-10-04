@@ -22,7 +22,7 @@ pipeline {
 
         stage("Git Checkout") {
             steps {
-                git branch: 'main', url: https://github.com/cxharles/aws-microservices-jenkins.git'
+                git branch: 'main', url: 'https://github.com/cxharles/aws-microservices-jenkins.git'
             }
         }
 
